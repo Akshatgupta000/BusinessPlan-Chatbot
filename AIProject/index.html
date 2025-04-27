@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Plan Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Business Plan Generator</h1>
+            <p class="tagline">Create a professional business plan in minutes with our AI-powered chatbot</p>
+        </header>
+        
+        <main>
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h2>Business Details</h2>
+                    <div class="form-group">
+                        <label for="business-name">Business Name</label>
+                        <input type="text" id="business-name" placeholder="Enter your business name">
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry">
+                            <option value="">Select industry</option>
+                            <option value="technology">Technology</ option>
+                            <option value="retail">Retail</option>
+                            <option value="food">Food & Beverage</option>
+                            <option value="health">Healthcare</option>
+                            <option value="education">Education</option>
+                            <option value="finance">Finance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="stage">Business Stage</label>
+                        <select id="stage">
+                            <option value="">Select stage</option>
+                            <option value="idea">Idea Stage</option>
+                            <option value="startup">Startup</option>
+                            <option value="established">Established Business</option>
+                            <option value="expanding">Expanding</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h2>Plan Templates</h2>
+                    <div class="template-option" data-template="standard">
+                        <h4>Standard Business Plan</h4>
+                        <p>Comprehensive plan suitable for most businesses</p>
+                    </div>
+                    <div class="template-option" data-template="lean">
+                        <h4>Lean Business Plan</h4>
+                        <p>Shorter plan focused on key elements</p>
+                    </div>
+                    <div class="template-option" data-template="investor">
+                        <h4>Investor Pitch Plan</h4>
+                        <p>Tailored for attracting investors</p>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <button id="export-btn" class="action-btn">Generate</button>
+                    <div class="export-options" id="export-options">
+                        <div class="export-option" data-format="pdf">
+                            <div class="export-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div>Export as PDF</div>
+                        </div>
+                        <div class="export-option" data-format="docx">
+                            <div class="export-icon"><i class="fas fa-file-word"></i></div>
+                            <div>Export as Word Document</div>
+                        </div>
+                        <div class="export-option" data-format="txt">
+                            <div class="export-icon"><i class="fas fa-file-alt"></i></div>
+                            <div>Export as Text File</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-header">
+                    Business Plan Assistant
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot-message">
+                        Hello! I'm your business plan assistant. I'll help you create a professional business plan tailored to your needs. To get started, please tell me about your business idea or fill in the details in the sidebar.
+                    </div>
+                </div>
+                <div class="typing-indicator" id="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="chat-input">
+                    <textarea id="user-input" placeholder="Type your message here..."></textarea>
+                    <button class="send-btn" id="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Add report page -->
+        <div class="report-page" id="report-page">
+            <div class="report-header">
+                <h2 class="report-title">Business Plan Report</h2>
+                <div class="report-actions">
+                    <button class="back-to-chat" id="back-to-chat">Back to Chat</button>
+                    <button class="action-btn" id="download-report">Download Report</button>
+                </div>
+            </div>
+            <div id="report-content">
+                <!-- Report content will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Add export page -->
+        <div class="export-page" id="export-page">
+            <div class="export-header">
+                <h2 class="export-title">Business Plan Review</h2>
+                <div class="export-actions">
+                    <button class="back-to-chat" id="back-to-chat">Back to Chat</button>
+                    <button class="action-btn" id="download-report">Download PDF</button>
+                </div>
+            </div>
+            <div id="export-content">
+                <!-- Export content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
